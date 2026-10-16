@@ -24,7 +24,7 @@ async function Iniciodesesion() {
             return;
         }
 
-        location.href = "/Calculadora2.html";
+        location.href = "/calculadora2.html";
     } catch (error) {
         console.error("Error al iniciar sesión:", error);
         alert("No se pudo conectar con el servidor.");
