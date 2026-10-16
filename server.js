@@ -28,7 +28,6 @@ const limitarIntentos = rateLimit({
     legacyHeaders: false
 });
 
-// REGISTRO
 app.post("/api/registrarse", limitarIntentos, async (req, res) => {
     try {
         const { usuario, contraseña, confirmar } = req.body;
@@ -87,7 +86,6 @@ app.post("/api/registrarse", limitarIntentos, async (req, res) => {
     }
 });
 
-// INICIO DE SESIÓN
 app.post("/api/iniciar-sesion", limitarIntentos, async (req, res) => {
     try {
         const { usuario, contraseña } = req.body;
@@ -127,8 +125,8 @@ app.post("/api/iniciar-sesion", limitarIntentos, async (req, res) => {
     }
 });
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-    console.log(`Servidor disponible en http://localhost:${PORT}`);
+    console.log(`Servidor disponible en el puerto ${PORT}`);
 });
