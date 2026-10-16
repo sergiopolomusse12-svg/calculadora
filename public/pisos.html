@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <meta name="description" content="Calculadora Interfaces">
+    <meta name="keywords" content="Calculadora Interfaces">
+    <meta name="author" content="M.S.S">
+    <link rel="shortcut icon" href="Logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="pisos.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"crossorigin="anonymous"></script>
+</head>
+<body>
+    <header> 
+        <div class="Logo">
+            <img src="Logo.jpg" alt="Logo de la empresa">
+            <h1>M.S.S</h1>
+        </div>
+        <nav>
+            <a href="calculadora2.html" class="nav-link salir">Salir</a>
+        </nav>
+    </header>
+    <form>
+        <section class="tarjeta">
+            <label for="anchoPiso">Ancho del piso (m):</label>
+            <input class="tarjeta" type="number" id="anchoPiso">
+            <label for="largoPiso">Largo del piso (m):</label>
+            <input class="tarjeta" type="number" id="largoPiso">
+            <button class="boton" type="button" py-click="calcular_pisos">Calcular</button>
+            <p id="resultadoPiso"></p>
+        </section>
+    </form>
+
+    <script type="py">
+
+        from pyscript import document
+
+        def calcular_pisos(event):
+
+            ancho = float(document.querySelector("#anchoPiso").value)
+            largo = float(document.querySelector("#largoPiso").value)
+
+            superficie = ancho * largo
+            superficie_final = superficie * 1.10
+
+            document.querySelector("#resultadoPiso").innerText = (
+                f"Superficie: {superficie:.2f} m²\n"
+                f"Superficie con 10% extra: {superficie_final:.2f} m²"
+    )
+
+    </script>
+</body>
+</html>

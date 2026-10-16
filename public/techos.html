@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <meta name="description" content="Calculadora Interfaces">
+    <meta name="keywords" content="Calculadora Interfaces">
+    <meta name="author" content="M.S.S">
+    <link rel="shortcut icon" href="Logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="techos.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"crossorigin="anonymous"></script>
+</head>
+<body>
+    <header> 
+        <div class="Logo">
+            <img src="Logo.jpg" alt="Logo de la empresa">
+            <h1>M.S.S</h1>
+        </div>
+        <nav>
+            <a href="calculadora2.html" class="nav-link salir">Salir</a>
+        </nav>
+    </header>
+
+    <form>
+        <section class="tarjeta">
+            <label for="espesorTecho">Espesor (m):</label>
+            <input class="tarjeta" type="number" id="espesorTecho" >
+            <br>
+            <label for="anchoTecho">Ancho (m):</label>
+            <input class="tarjeta" type="number" id="anchoTecho">
+            <br>
+            <label for="largoTecho">Largo (m):</label>
+            <input class="tarjeta" type="number" id="largoTecho">
+            <br>
+            <button class="boton" type="button" py-click="calcular_techo">Calcular</button>
+            <p id="resultadoTecho"></p>
+
+        </section>
+    </form>
+
+    <script type="py">
+        from pyscript import document
+
+        def calcular_techo(event):
+
+            espesor = float(document.querySelector("#espesorTecho").value)
+            ancho = float(document.querySelector("#anchoTecho").value)
+            largo = float(document.querySelector("#largoTecho").value)
+
+            area = ancho * largo
+            cemento = area * 33
+            arena = area * 0.072
+            piedra = area * 0.072
+            hierro8 = area * 7
+            hierro6 = area * 4
+
+            document.querySelector("#resultadoTecho").innerText = (
+                f"Área del techo: {area:.2f} m²\n"
+                f"Cemento: {cemento:.2f} kg\n"
+                f"Arena: {arena:.3f} m³\n"
+                f"Piedra: {piedra:.3f} m³\n"
+                f"Hierro del 8: {hierro8:.2f} m\n"
+                f"Hierro del 6: {hierro6:.2f} m"
+    )
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <meta name="description" content="Calculadora Interfaces">
+    <meta name="keywords" content="Calculadora Interfaces">
+    <meta name="author" content="M.S.S">
+    <link rel="shortcut icon" href="Logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="columnas.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"crossorigin="anonymous"></script>
+</head>
+<body>
+    <header> 
+        <div class="Logo">
+            <img src="Logo.jpg" alt="Logo de la empresa">
+            <h1>M.S.S</h1>
+        </div>
+        <nav>
+            <a href="calculadora2.html" class="nav-link salir">Salir</a>
+        </nav>
+    </header>
+
+    <form>
+        <section class="tarjeta">
+            <label for="largoColumna">Largo de la columna (m):</label>
+            <input class="tarjeta" type="number" id="largoColumna" >
+            <button class="boton" type="button" py-click="calcular_columna">Calcular</button>
+            <p id="resultadoColumna"></p>
+        </section>
+    </form>
+
+    <script type="py">
+
+        from pyscript import document
+
+        def calcular_columna(event):
+
+            largo = float(document.querySelector("#largoColumna").value)
+
+            cemento = largo * 7.5
+            arena = largo * 0.016
+            piedra = largo * 0.016
+            hierro10 = largo * 6
+            hierro4 = largo * 3
+
+            document.querySelector("#resultadoColumna").innerText = (
+                f"Cemento: {cemento:.2f} kg\n"
+                f"Arena: {arena:.3f} m³\n"
+                f"Piedra: {piedra:.3f} m²\n"
+                f"Hierro del 10: {hierro10:.2f} m\n"
+                f"Hierro del 4: {hierro4:.2f} m"
+    )
+
+    </script>
+</body>
+</html>
