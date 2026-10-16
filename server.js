@@ -9,8 +9,7 @@ const { rateLimit } = require("express-rate-limit");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const rutaBD =
-    process.env.DATABASE_PATH ||
+const rutaBD = process.env.DATABASE_PATH ||
     path.join(__dirname, "usuarios.db");
 
 const db = new Database(rutaBD);
@@ -26,23 +25,28 @@ db.exec(`
     )
 `);
 
+const directivasCSP = {
+    ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+    "script-src": [
+        "'self'",
+        "https://kit.fontawesome.com"
+    ],
+    "script-src-attr": ["'none'"]
+};
+
 app.use(
     helmet({
         contentSecurityPolicy: {
-            directives: {
-                ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-                scriptSrc: [
-                    "'self'",
-                    "https://kit.fontawesome.com"
-                ],
-                scriptSrcAttr: ["'none'"]
-            }
+            directives: directivasCSP
         }
     })
 );
 
 app.use(express.json({ limit: "10kb" }));
-app.use(express.urlencoded({ extended: false, limit: "10kb" }));
+app.use(express.urlencoded({
+    extended: false,
+    limit: "10kb"
+}));
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -103,14 +107,20 @@ app.post(
                 });
             }
 
-            const contraseñaHash = await bcrypt.hash(contraseña, 12);
+            const contraseñaHash = await bcrypt.hash(
+                contraseña,
+                12
+            );
 
             const insertarUsuario = db.prepare(`
                 INSERT INTO usuarios (usuario, contraseña)
                 VALUES (?, ?)
             `);
 
-            insertarUsuario.run(nombreUsuario, contraseñaHash);
+            insertarUsuario.run(
+                nombreUsuario,
+                contraseñaHash
+            );
 
             return res.status(201).json({
                 mensaje: "Registro exitoso."
@@ -190,9 +200,11 @@ app.post(
 );
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "Registrarse.html"));
+    res.sendFile(
+        path.join(__dirname, "public", "Registrarse.html")
+    );
 });
 
 app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Servidor disponible en el puerto ${PORT}`);
+    console.log(`Servidor iniciado en el puerto ${PORT}`);
 });
