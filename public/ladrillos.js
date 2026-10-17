@@ -1,13 +1,21 @@
-
-function calcular(event) {
+function calcular() {
     const espesor = parseInt(document.querySelector("#espesor").value);
+    const largoCm = parseFloat(document.querySelector("#largo").value);
+    const altoCm = parseFloat(document.querySelector("#alto").value);
+    const resultado = document.querySelector("#resultado");
 
-    let largo = parseFloat(document.querySelector("#largo").value);
-    let alto = parseFloat(document.querySelector("#alto").value);
+    if (
+        !Number.isFinite(largoCm) ||
+        !Number.isFinite(altoCm) ||
+        largoCm <= 0 ||
+        altoCm <= 0
+    ) {
+        resultado.innerText = "Ingresa un largo y un alto mayores que cero.";
+        return;
+    }
 
-    largo = largo / 100;
-    alto = alto / 100;
-
+    const largo = largoCm / 100;
+    const alto = altoCm / 100;
     const superficie = largo * alto;
 
     let cemento;
@@ -23,14 +31,15 @@ function calcular(event) {
         arena = superficie * 0.115;
         ladrillos = superficie * 120;
     } else {
-        document.querySelector("#resultado").innerText =
-            "Selecciona un espesor de 20 o 30.";
+        resultado.innerText = "Selecciona un espesor válido.";
         return;
     }
 
-    document.querySelector("#resultado").innerText =
+    resultado.innerText =
         `Superficie: ${superficie.toFixed(2)} m²\n` +
         `Cemento: ${cemento.toFixed(2)} kg\n` +
         `Arena: ${arena.toFixed(3)} m³\n` +
-        `Ladrillos: ${ladrillos.toFixed(0)}`;
+        `Ladrillos: ${Math.ceil(ladrillos)}`;
 }
+
+document.querySelector("#btnCalcular").addEventListener("click", calcular);

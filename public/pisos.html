@@ -10,9 +10,6 @@
     <meta name="author" content="M.S.S">
     <link rel="shortcut icon" href="Logo.jpg" type="image/x-icon">
     <link rel="stylesheet" href="pisos.css">
-    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
-    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
-    <script src="https://kit.fontawesome.com/2c36e9b7b1.js"crossorigin="anonymous"></script>
 </head>
 <body>
     <header> 
@@ -30,7 +27,7 @@
             <input class="tarjeta" type="number" id="anchoPiso">
             <label for="largoPiso">Largo del piso (m):</label>
             <input class="tarjeta" type="number" id="largoPiso">
-            <button class="boton" type="button" py-click="calcular_pisos">Calcular</button>
+            <button class="boton" type="button" id="btnCalcularPisos">Calcular</button>
             <p id="resultadoPiso"></p>
         </section>
     </form>
