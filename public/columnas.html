@@ -33,29 +33,6 @@
             <p id="resultadoColumna"></p>
         </section>
     </form>
-
-    <script type="py">
-
-        from pyscript import document
-
-        def calcular_columna(event):
-
-            largo = float(document.querySelector("#largoColumna").value)
-
-            cemento = largo * 7.5
-            arena = largo * 0.016
-            piedra = largo * 0.016
-            hierro10 = largo * 6
-            hierro4 = largo * 3
-
-            document.querySelector("#resultadoColumna").innerText = (
-                f"Cemento: {cemento:.2f} kg\n"
-                f"Arena: {arena:.3f} m³\n"
-                f"Piedra: {piedra:.3f} m²\n"
-                f"Hierro del 10: {hierro10:.2f} m\n"
-                f"Hierro del 4: {hierro4:.2f} m"
-    )
-
-    </script>
+    <script src="/columnas.js" defer></script>
 </body>
 </html>

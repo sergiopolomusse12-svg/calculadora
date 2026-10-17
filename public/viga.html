@@ -33,26 +33,6 @@
     </section>
     </form>
 
-    <script type="py">
-        from pyscript import document
-
-        def calcular_viga(event):
-
-            largo = float(document.querySelector("#largoViga").value)
-
-            cemento = largo * 9
-            arena = largo * 0.02
-            piedra = largo * 0.02
-            hierro8 = largo * 4
-            hierro4 = largo * 3
-
-            document.querySelector("#resultadoViga").innerText = (
-                f"Cemento: {cemento:.2f} kg\n"
-                f"Arena: {arena:.2f} m³\n"
-                f"Piedra: {piedra:.2f} m²\n"
-                f"Hierro del 8: {hierro8:.2f} m\n"
-                f"Hierro del 4: {hierro4:.2f} m"
-    )
-    </script>
+    <script src="/viga.js" defer></script>
 </body>
 </html>

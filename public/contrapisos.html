@@ -40,30 +40,6 @@
             <p id="resultadoContrapiso"></p>
         </section>
     </form>
-
-    <script type="py">
-
-        from pyscript import document
-
-        def calcular_contrapiso(event):
-
-            espesor = float(document.querySelector("#espesorContrapiso").value)
-            ancho = float(document.querySelector("#anchoContrapiso").value)
-            largo = float(document.querySelector("#largoContrapiso").value)
-
-            volumen = espesor * ancho * largo
-            cemento = volumen * 105
-            arena = volumen * 0.45
-            piedra = volumen * 0.9
-
-    
-            document.querySelector("#resultadoContrapiso").innerText = (
-                f"Volumen: {volumen:.3f} m³\n"
-                f"Cemento: {cemento:.2f} kg\n"
-                f"Arena: {arena:.3f} m³\n"
-                f"Piedra: {piedra:.3f} m³"
-    )
-
-    </script>
+    <script src="/contrapisos.js" defer></script>
 </body>
 </html>

@@ -41,32 +41,6 @@
 
         </section>
     </form>
-
-    <script type="py">
-        from pyscript import document
-
-        def calcular_techo(event):
-
-            espesor = float(document.querySelector("#espesorTecho").value)
-            ancho = float(document.querySelector("#anchoTecho").value)
-            largo = float(document.querySelector("#largoTecho").value)
-
-            area = ancho * largo
-            cemento = area * 33
-            arena = area * 0.072
-            piedra = area * 0.072
-            hierro8 = area * 7
-            hierro6 = area * 4
-
-            document.querySelector("#resultadoTecho").innerText = (
-                f"Área del techo: {area:.2f} m²\n"
-                f"Cemento: {cemento:.2f} kg\n"
-                f"Arena: {arena:.3f} m³\n"
-                f"Piedra: {piedra:.3f} m³\n"
-                f"Hierro del 8: {hierro8:.2f} m\n"
-                f"Hierro del 6: {hierro6:.2f} m"
-    )
-
-    </script>
+    <script src="/techos.js" defer></script>
 </body>
 </html>

@@ -34,25 +34,6 @@
 
         </section>
     </form>
-
-    <script type="py">
-
-        from pyscript import document
-
-        def calcular_pintura(event):
-
-            superficie = float(
-                document.querySelector("#superficiePintura").value
-    )
-
-            pintura = superficie / 6
-
-
-            document.querySelector("#resultadoPintura").innerText = (
-                f"Superficie del muro: {superficie:.2f} m²\n"
-                f"Pintura necesaria: {pintura:.2f} litros"
-    )
-
-    </script>
+    <script src="/pintura.js" defer></script>
 </body>
 </html>

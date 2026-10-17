@@ -51,44 +51,7 @@
     </form> 
 
     <p id="resultado"></p>
+    <script src="/ladrillos.js" defer></script>
 
-    <script type="py">
-
-        from pyscript import document
-
-        def calcular(event):
-
-            espesor = int(document.querySelector("#espesor").value)
-
-            largo = float(document.querySelector("#largo").value)
-
-            alto = float(document.querySelector("#alto").value)
-
-            largo = largo / 100
-            alto = alto / 100
-
-            superficie = largo * alto
-
-            if espesor == 20:
-
-                cemento = superficie * 10.9
-                arena = superficie * 0.09
-                ladrillos = superficie * 90
-
-            elif espesor == 30:
-
-                cemento = superficie * 15.2
-                arena = superficie * 0.115
-                ladrillos = superficie * 120
-
-            document.querySelector("#resultado").innerText = (
-                f"Superficie: {superficie:.2f} m²\n"
-                f"Cemento: {cemento:.2f} kg\n"
-                f"Arena: {arena:.3f} m³\n"
-                f"Ladrillos: {ladrillos:.0f}"
-    )
-
-
-    </script>
 </body>
 </html>

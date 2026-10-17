@@ -34,24 +34,6 @@
             <p id="resultadoPiso"></p>
         </section>
     </form>
-
-    <script type="py">
-
-        from pyscript import document
-
-        def calcular_pisos(event):
-
-            ancho = float(document.querySelector("#anchoPiso").value)
-            largo = float(document.querySelector("#largoPiso").value)
-
-            superficie = ancho * largo
-            superficie_final = superficie * 1.10
-
-            document.querySelector("#resultadoPiso").innerText = (
-                f"Superficie: {superficie:.2f} m²\n"
-                f"Superficie con 10% extra: {superficie_final:.2f} m²"
-    )
-
-    </script>
+    <script src="/pisos.js" defer></script>
 </body>
 </html>
