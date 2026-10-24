@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <meta name="description" content="Calculadora Interfaces">
+    <meta name="keywords" content="Calculadora Interfaces">
+    <meta name="author" content="M.S.S">
+    <link rel="shortcut icon" href="/Logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="/pisos.css">
+</head>
+<body>
+    <header> 
+        <div class="Logo">
+            <img src="/Logo.jpg" alt="Logo de la empresa">
+            <h1>M.S.S</h1>
+        </div>
+        <nav>
+            <a href="/calculadora2.html" class="nav-link salir">Salir</a>
+        </nav>
+    </header>
+    <form action="/calcular-pisos" method="post">
+        <section class="tarjeta">
+            <label for="anchoPiso">Ancho del piso (m):</label>
+            <input class="tarjeta" type="number" id="anchoPiso" name="ancho" step="any" required>
+            <label for="largoPiso">Largo del piso (m):</label>
+            <input class="tarjeta" type="number" id="largoPiso" name="largo" step="any" required>
+            <button class="boton" type="submit">Calcular</button>
+            <br><br>
+            <div th:if="${superficieR != null}">
+                <p>Superficie original: <span th:text="${superficie}"></span> m²</p>
+                <p>Superficie con 10% extra: <span th:text="${superficieR}"></span> m²</p>
+            </div>
+        </section>
+    </form>
+</body>
+</html>
