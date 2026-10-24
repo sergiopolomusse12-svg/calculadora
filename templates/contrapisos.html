@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <meta name="description" content="Calculadora Interfaces">
+    <meta name="keywords" content="Calculadora Interfaces">
+    <meta name="author" content="M.S.S">
+    <link rel="shortcut icon" href="/Logo.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="/contrapisos.css">
+</head>
+<body>
+    <header> 
+        <div class="Logo">
+            <img src="/Logo.jpg" alt="Logo de la empresa">
+            <h1>M.S.S</h1>
+        </div>
+        <nav>
+            <a href="calculadora2.html" class="nav-link salir">Salir</a>
+        </nav>
+    </header>
+
+    <form action="/calcular-contrapisos" method="post">
+        <section class="tarjeta">
+            <label for="espesorContrapiso">Espesor (cm):</label>
+            <input class="tarjeta" type="number" id="espesorContrapiso" name="espesor" step="any" required>
+            <br>
+            <label for="anchoContrapiso">Ancho (m):</label>
+            <input class="tarjeta" type="number" id="anchoContrapiso" name="ancho" step="any" required>
+            <br>
+            <label for="largoContrapiso">Largo (m):</label>
+            <input class="tarjeta" type="number" id="largoContrapiso" name="largo" step="any" required>
+            <br>
+            <button class="boton" type="submit">Calcular</button>
+            <br><br>
+            <div th:if="${volumen !=null}">
+                <p>Volumen del contrapiso:<span th:text="${volumen}"></span>m³</p>
+                <p>Cemento necesario:<span th:text="${cemento}"></span>kg</p>
+                <p>Arena necesario:<span th:text="${arena}"></span>m³</p>
+                <p>Piedra necesario:<span th:text="${piedra}"></span>m³</p>
+            </div>
+        </section>
+    </form>
+</body>
+</html>
